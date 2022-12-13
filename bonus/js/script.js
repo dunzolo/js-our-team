@@ -33,18 +33,20 @@ let teams = [
 ]
 
 // Stampare le stesse informazioni su DOM sottoforma di stringhe
-let container = document.getElementById('container');
+let container = document.querySelector('.container');
 
 // Stampare su console, per ogni membro del team, le informazioni di nome, ruolo e la stringa della foto
 for(let i = 0; i < teams.length; i++){
     let member = teams[i];
 
-    console.log(`Nome: ${member.name} - Ruolo: ${member.role} - Immagine: ${member.image}`);
+    let name_card = document.getElementById(`name-${i+1}`);
+    name_card.innerText = member.name;
 
-    let box = document.createElement('div');
+    let role_card = document.getElementById(`role-${i+1}`);
+    role_card.innerText = member.role;
 
-    box.innerText = `Nome: ${member.name} - Ruolo: ${member.role} - Immagine: ${member.image}`;
+    let image_card = document.getElementById(`image-${i+1}`);
+    image_card.src = "../img/"+member.image;
 
-    container.appendChild(box);
 }
 
