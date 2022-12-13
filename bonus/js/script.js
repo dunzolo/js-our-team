@@ -32,21 +32,37 @@ let teams = [
     }
 ]
 
-// Stampare le stesse informazioni su DOM sottoforma di stringhe
-let container = document.querySelector('.container');
+let row_cards = document.getElementById('row-card');
 
-// Stampare su console, per ogni membro del team, le informazioni di nome, ruolo e la stringa della foto
 for(let i = 0; i < teams.length; i++){
     let member = teams[i];
 
-    let name_card = document.getElementById(`name-${i+1}`);
-    name_card.innerText = member.name;
+    let col = document.createElement('div');
 
-    let role_card = document.getElementById(`role-${i+1}`);
-    role_card.innerText = member.role;
+    col.classList.add('col-4', 'p-3');
 
-    let image_card = document.getElementById(`image-${i+1}`);
+    let image_card = document.createElement('img');
+
     image_card.src = "../img/"+member.image;
 
+    let card_body = document.createElement('div');
+
+    card_body.classList.add('card-body', 'bg-white', 'p-2');
+
+    let name_card = document.createElement('p');
+
+    name_card.innerText = member.name;
+
+    let role_card = document.createElement('p');
+
+    role_card.classList.add('font-size-12');
+
+    role_card.innerText = member.role;
+
+    row_cards.append(col);
+    col.append(image_card);
+    col.append(card_body);
+    card_body.append(name_card);
+    card_body.append(role_card);
 }
 
