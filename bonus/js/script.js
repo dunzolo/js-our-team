@@ -41,28 +41,36 @@ for(let i = 0; i < teams.length; i++){
 
     col.classList.add('col-4', 'p-3');
 
-    let image_card = document.createElement('img');
+    // let image_card = document.createElement('img');
 
-    image_card.src = "../img/"+member.image;
+    // image_card.src = "../img/"+member.image;
 
-    let card_body = document.createElement('div');
+    // let card_body = document.createElement('div');
 
-    card_body.classList.add('card-body', 'bg-white', 'p-2');
+    // card_body.classList.add('card-body', 'bg-white', 'p-2');
 
-    let name_card = document.createElement('p');
+    // let name_card = document.createElement('p');
 
-    name_card.innerText = member.name;
+    // name_card.innerText = member.name;
 
-    let role_card = document.createElement('p');
+    // let role_card = document.createElement('p');
 
-    role_card.classList.add('font-size-12');
+    // role_card.classList.add('font-size-12');
 
-    role_card.innerText = member.role;
+    // role_card.innerText = member.role;
 
     row_cards.append(col);
-    col.append(image_card);
-    col.append(card_body);
-    card_body.append(name_card);
-    card_body.append(role_card);
+    // col.append(image_card);
+    // col.append(card_body);
+    // card_body.append(name_card);
+    // card_body.append(role_card);
+
+    col.innerHTML = `
+        <img src="./img/${member.image}"/>
+        <div class="card-body bg-white p-2">
+            <h4>${member.name}</h4>
+            <p>${member.role}</p>
+        </div>
+    `
 }
 
